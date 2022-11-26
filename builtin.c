@@ -3,9 +3,9 @@
 /**
  * _myexit - exits the shell
  * @info: Structure containing potential arguments. Used to maintain
- * constant function prototype.
+ *	 constant function prototype.
  * Return: exits with a given exit status
- * (0) if info.argv[0] != "exit"
+ * 	(0) if info.argv[0] != "exit"
  */
 int _myexit(info_t *info)
 {
@@ -24,15 +24,15 @@ int _myexit(info_t *info)
 		}
 		info->err_num = _erratoi(info->argv[1]);
 		return (-2);
-		}
-		info->err_num = -1;
-		return (-2);
+	}
+	info->err_num = -1;
+	return (-2);
 }
 
 /**
  * _mycd - changes the current directory of the process
  * @info: Structure containing potential arguments. Used to maintain
- * constant function prototype.
+ *	 constant function prototype.
  * Return: Always 0
  */
 int _mycd(info_t *info)
@@ -42,16 +42,15 @@ int _mycd(info_t *info)
 
 	s = getcwd(buffer, 1024);
 	if (!s)
-
 		_puts("TODO: >>getcwd failure emsg here<<\n")
-			if (!info->argv[1])
+	if (!info->argv[1])
 	{
 		dir = _getenv(info, "HOME=");
 		if (!dir)
 			chdir_ret = /* TODO: what should this be? */
 				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
-							else
-								chdir_ret = chdir(dir)
+		else
+			chdir_ret = chdir(dir)
 	}
 	else if (_strcmp(info->argv[1], "-") == 0)
 	{
@@ -93,7 +92,6 @@ int _myhelp(info_t *info)
 	arg_array = info->argv;
 	_puts("help call works. Function not yet implemented \n");
 	if (0)
-
 		_puts(*arg_array); /* temp att_unused workaround */
 	return (0);
 }
